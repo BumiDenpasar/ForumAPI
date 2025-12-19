@@ -35,7 +35,6 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: ${{ matrix.node-version }}
-          cache: "npm"
       - name: npm install migrate and test
         run: |
           npm install
@@ -48,7 +47,7 @@ jobs:
           PGHOST: localhost
           PGPORT: 5432
           PGUSER: postgres
-          PGDATABASE: 5432
+          PGDATABASE: forumapi_test
           PGPASSWORD: supersecretpassword
           ACCESS_TOKEN_KEY: ${{ secrets.ACCESS_TOKEN_KEY }}
           REFRESH_TOKEN_KEY: ${{ secrets.REFRESH_TOKEN_KEY }}
