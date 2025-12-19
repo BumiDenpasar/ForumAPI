@@ -72,46 +72,46 @@ describe('ThreadRepositoryPostgres', () => {
   describe('getThreadById function', () => {
     it('should return thread detail correctly', async () => {
       // Arrange
-      const threadId = 'thread-123';
+      const threadId = 'thread-123'
       const expectedThread = {
         id: threadId,
         title: 'sebuah thread',
         body: 'isi thread',
         date: '2023-09-22T07:19:09.775Z',
-        username: 'dicoding',
-      };
-  
-      await UsersTableTestHelper.addUser({ id: 'user-123', username: 'dicoding' });
+        username: 'dicoding'
+      }
+
+      await UsersTableTestHelper.addUser({ id: 'user-123', username: 'dicoding' })
       await ThreadsTableTestHelper.addThread({
         id: threadId,
         title: expectedThread.title,
         body: expectedThread.body,
         date: expectedThread.date,
-        owner: 'user-123',
-      });
-  
-      const threadRepositoryPostgres = new ThreadRepositoryPostgres(pool, {});
-  
+        owner: 'user-123'
+      })
+
+      const threadRepositoryPostgres = new ThreadRepositoryPostgres(pool, {})
+
       // Action
-      const thread = await threadRepositoryPostgres.getThreadById(threadId);
-  
+      const thread = await threadRepositoryPostgres.getThreadById(threadId)
+
       // Assert
       expect(thread).toStrictEqual({
         id: expectedThread.id,
         title: expectedThread.title,
         body: expectedThread.body,
         date: expectedThread.date,
-        username: expectedThread.username,
-      });
-    });
-  
+        username: expectedThread.username
+      })
+    })
+
     it('should throw NotFoundError when thread not found', async () => {
       // Arrange
-      const threadRepositoryPostgres = new ThreadRepositoryPostgres(pool, {});
-  
+      const threadRepositoryPostgres = new ThreadRepositoryPostgres(pool, {})
+
       // Action & Assert
       await expect(threadRepositoryPostgres.getThreadById('thread-999'))
-        .rejects.toThrowError(NotFoundError);
-    });
-  });
+        .rejects.toThrowError(NotFoundError)
+    })
+  })
 })

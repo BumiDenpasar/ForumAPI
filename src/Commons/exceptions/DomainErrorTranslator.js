@@ -29,7 +29,10 @@ DomainErrorTranslator._directories = {
   'DETAIL_THREAD.NOT_CONTAIN_NEEDED_PROPERTY': new InvariantError('properti detail thread tidak lengkap'),
   'DETAIL_THREAD.NOT_MEET_DATA_TYPE_SPECIFICATION': new InvariantError('tipe data detail thread tidak sesuai'),
   'DETAIL_COMMENT.NOT_CONTAIN_NEEDED_PROPERTY': new InvariantError('properti detail komentar tidak lengkap'),
-  'DETAIL_COMMENT.NOT_MEET_DATA_TYPE_SPECIFICATION': new InvariantError('tipe data detail komentar tidak sesuai')
+  'DETAIL_COMMENT.NOT_MEET_DATA_TYPE_SPECIFICATION': new InvariantError('tipe data detail komentar tidak sesuai'),
+
+  'HELLO.NOT_CONTAIN_NEEDED_PROPERTY': new InvariantError('harus mengirimkan nama'),
+  'HELLO.NOT_MEET_DATA_TYPE_SPECIFICATION': new InvariantError('nama harus string')
 }
 
 module.exports = DomainErrorTranslator

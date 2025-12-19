@@ -31,6 +31,7 @@ const AddThreadUseCase = require('../Applications/use_case/AddThreadUseCase')
 const AddCommentUseCase = require('../Applications/use_case/AddCommentUseCase')
 const DeleteCommentUseCase = require('../Applications/use_case/DeleteCommentUseCase')
 const GetThreadDetailUseCase = require('../Applications/use_case/GetThreadDetailUseCase')
+const GetHelloUseCase = require('../Applications/use_case/GetHelloUseCase')
 
 // creating container
 const container = createContainer()
@@ -116,6 +117,10 @@ container.register([
 
 // registering use cases
 container.register([
+  {
+    key: GetHelloUseCase.name,
+    Class: GetHelloUseCase
+  },
   {
     key: GetThreadDetailUseCase.name,
     Class: GetThreadDetailUseCase,

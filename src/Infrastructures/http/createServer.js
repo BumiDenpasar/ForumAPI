@@ -6,6 +6,7 @@ const users = require('../../Interfaces/http/api/users')
 const authentications = require('../../Interfaces/http/api/authentications')
 const threads = require('../../Interfaces/http/api/threads')
 const comments = require('../../Interfaces/http/api/comments')
+const hello = require('../../Interfaces/http/api/hello')
 
 const createServer = async (container) => {
   const server = Hapi.server({
@@ -36,6 +37,10 @@ const createServer = async (container) => {
   })
 
   await server.register([
+    {
+      plugin: hello,
+      options: { container }
+    },
     {
       plugin: users,
       options: { container }
@@ -71,7 +76,6 @@ const createServer = async (container) => {
       if (!translatedError.isServer) {
         return h.continue
       }
-
       const newResponse = h.response({
         status: 'error',
         message: 'terjadi kegagalan pada server kami'
