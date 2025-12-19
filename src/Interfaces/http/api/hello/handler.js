@@ -7,7 +7,7 @@ class HelloHandler {
   }
 
   async getHelloHandler (request, h) {
-    const getHelloUseCase = this._container.getInstance('GetHelloUseCase.name')
+    const getHelloUseCase = this._container.getInstance('Error.name')
     const message = await getHelloUseCase.execute(request.query)
     return {
       status: 'success',
