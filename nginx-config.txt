@@ -4,7 +4,7 @@ server {
         listen [::]:80 default_server;
         root /var/www/html;
 
-        server_name _;
+        server_name ninety-corners-sniff-busily.st.a.dcdg.xyz www.ninety-corners-sniff-busily.st.a.dcdg.xyz;
 
         location /threads {
                 limit_req zone=one
